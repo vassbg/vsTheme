@@ -1,0 +1,170 @@
+/**
+'##::::'##::'######:::::::'##::: ##::::'###::::'##::::'##:
+ ##:::: ##:'##... ##:::::: ###:: ##:::'## ##::: ##:::: ##:
+ ##:::: ##: ##:::..::::::: ####: ##::'##:. ##:: ##:::: ##:
+ ##:::: ##:. ######::::::: ## ## ##:'##:::. ##: ##:::: ##:
+. ##:: ##:::..... ##:::::: ##. ####: #########:. ##:: ##::
+:. ## ##:::'##::: ##:'###: ##:. ###: ##.... ##::. ## ##:::
+::. ###::::. ######:: ###: ##::. ##: ##:::: ##:::. ###::::
+:::...::::::......:::...::..::::..::..:::::..:::::...:::::
+**/
+:root {
+    --menu-font-size: 14px;
+    --menu-height: 70px;
+    --sub-menu-height: 50px;
+    --menu-align: flex-end;
+    --menu-background: #293742;
+    --menu-hover-background: #202b33;
+    --menu-color: #ffffff;
+    --menu-hover-color: #00bea0;
+    --sub-menu-background: #394751;
+    --sub-menu-hover-background: #202b33;
+    --sub-menu-color: #ffffff;
+    --sub-menu-hover-color: #00bea0;
+    --sub-menu-animation: zoomIn 0.3s;
+    --sub-menu-text-align: right;
+}
+
+#vs-nav-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: var(--menu-align);
+    background: var(--menu-background);
+    z-index: 100;
+}
+
+#vs-nav-container ul {
+    list-style-type: none;
+}
+
+#vs-nav {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: var(--menu-align);
+    background: var(--menu-background);
+}
+
+#vs-nav li {
+    transition: all 0.3s;
+    position: relative;
+}
+
+#vs-nav li > a {
+    display: block;
+    padding: 0 20px;
+    height: var(--menu-height);
+    line-height: var(--menu-height);
+    color: var(--menu-color);
+    transition: all 0.3s;
+    font-size: var(--menu-font-size);
+}
+
+#vs-nav li > a:hover {
+    background: var(--menu-hover-background);
+    color: var(--menu-hover-color);
+}
+
+#vs-nav li > ul {
+    display: none;
+    position: absolute;
+    right: 0px;
+    flex-direction: column;
+    white-space: nowrap;
+    transition: all 0.3s;
+}
+
+#vs-nav li > ul > li > a {
+    text-align: var(--sub-menu-text-align);
+    background: var(--sub-menu-background);
+    color: var(--sub-menu-color);
+    height: var(--sub-menu-height);
+    line-height: var(--sub-menu-height);
+}
+
+#vs-nav li > ul > li > a:hover {
+    background: var(--sub-menu-hover-background);
+    color: var(--sub-menu-hover-color);
+}
+
+#vs-nav li > ul.visible {
+    display: flex !important;
+    animation: var(--sub-menu-animation);
+}
+
+#vs-nav.mobile {
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: var(--menu-height);
+    flex-direction: column;
+}
+
+#vs-nav.mobile li > ul {
+    display: flex;
+    width: 100%;
+    position: relative;
+    flex-direction: column;
+    animation: none;
+}
+
+#vs-nav.mobile a {
+    text-align: center;
+}
+
+#vs-nav.mobile.visible {
+    display: flex !important;
+    animation: var(--sub-menu-animation);
+}
+
+#vs-nav-mobile-icon {
+    position: relative;
+    width: 0px;
+    height: var(--menu-height);
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+#vs-nav-mobile-icon span {
+    position: absolute;
+    left: calc((var(--menu-height) - var(--menu-height) * 0.5) / 2);
+    width: calc(var(--menu-height) * 0.5);
+    height: 3px;
+    background: var(--menu-color);
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+#vs-nav-mobile-icon span:first-child {
+    top: 33%;
+    transform: translateY(-50%);
+}
+
+#vs-nav-mobile-icon span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#vs-nav-mobile-icon span:last-child {
+    top: 68%;
+    transform: translateY(-50%);
+}
+
+#vs-nav-mobile-icon.close span:first-child {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+}
+
+#vs-nav-mobile-icon.close span:nth-child(2) {
+    width: 0;
+    left: 50%;
+}
+
+#vs-nav-mobile-icon.close span:last-child {
+    top: 50%;
+    transform: translateY(-50%) rotate(-45deg);
+}
+
+#vs-nav-mobile-icon.visible {
+    width: var(--menu-height);
+}
