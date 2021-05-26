@@ -1,6 +1,6 @@
 <?php 
 /**
- *  Template Name: Full width without title 
+ *  Template Name: Default without title 
  **/ 
 
 get_header();
@@ -10,7 +10,7 @@ if ( have_posts() )
         : the_post(); 
 ?>
 
-    <div id="content-full">
+    <div id="content">
         <?= the_content(); ?>
     </div>
      

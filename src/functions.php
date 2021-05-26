@@ -18,9 +18,12 @@ add_action('init', 'vs_theme_menu_register');
 function vs_theme_load_scripts() {
     wp_enqueue_style('animate-css', get_template_directory_uri() . '/css/animate.min.css' );
     wp_enqueue_style('vs-nav-css', get_template_directory_uri() . '/css/vs.nav.css' );
+    wp_enqueue_style('light-box-css', get_template_directory_uri() . '/css/LightBox.css' );
     wp_enqueue_style('vs-theme-css', get_template_directory_uri() . '/css/vs.theme.css' );
     # wp_enqueue_style( 'dashicons' );
     wp_enqueue_script( 'vs-nav-js', get_template_directory_uri() . '/js/vs.nav.js', null, null, true );
+    wp_enqueue_script( 'swipe-js', get_template_directory_uri() . '/js/Swipe.js', null, null, true );
+    wp_enqueue_script( 'light-box-js', get_template_directory_uri() . '/js/LightBox.js', null, null, true );
     wp_enqueue_script( 'vs-theme-js', get_template_directory_uri() . '/js/vs.theme.js', null, null, true );
 }
 

@@ -9,7 +9,7 @@ if ( have_posts() )
 
     <div id="content">
         <h1><?= get_the_title(); ?></h1>
-        <?= get_the_content(); ?>
+        <?= the_content(); ?>
     </div>
      
 <?php
